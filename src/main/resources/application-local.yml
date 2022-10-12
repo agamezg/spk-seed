@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: spk-seed
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: redbee
+      password: r3db33
