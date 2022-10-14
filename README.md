@@ -26,3 +26,6 @@ Consumir un mensaje
 docker exec -i {kafka-container-name} kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic {topic-name} --from-beginning
 ```
 
+## Acuerdos para el desarrollo
+
+[Introduzca acuerdos acá]
