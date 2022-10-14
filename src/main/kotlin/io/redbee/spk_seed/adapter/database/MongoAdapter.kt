@@ -1,13 +1,12 @@
 package io.redbee.spk_seed.adapter.database
 
 import io.redbee.spk_seed.application.ports.out.CurrencyRepository
-import org.springframework.data.mongodb.core.MongoTemplate
+import io.redbee.spk_seed.domain.Currency
+import org.springframework.stereotype.Repository
 
-class MongoAdapter(
-    private val mongoTemplate: MongoTemplate
-): CurrencyRepository {
-
-    override fun save() {
-
+@Repository
+class MongoAdapter : CurrencyRepository {
+    override fun save(currency: Currency): Currency {
+        TODO("Not yet implemented")
     }
 }
