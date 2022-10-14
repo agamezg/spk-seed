@@ -1,11 +1,45 @@
-version: '3.9'
+version: '3.3'
 services:
   mongodb:
     image: mongo:5.0
+    container_name: mongo
     ports:
-      - 27017:27017
+      - "27017:27017"
     volumes:
       - ~/apps/mongo:/data/db
     environment:
       - MONGO_INITDB_ROOT_USERNAME=redbee
       - MONGO_INITDB_ROOT_PASSWORD=r3db33
+      - MONGO_INITDB_DATABASE=coupons
+
+  zookeeper:
+    image: wurstmeister/zookeeper
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    restart: unless-stopped
+
+  kafka:
+    image: wurstmeister/kafka:latest
+    container_name: kafka
+    ports:
+      - "9092"
+    environment:
+      DOCKER_API_VERSION: 1.22
+      KAFKA_ADVERTISED_HOST_NAME: 192.168.99.100
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+  redis:
+    image: redis:6.0.3-alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: always     # "unless-stopped" or "always"
+    ## UNCOMMENT THESE LINES IF WE USE CUSTOM REDIS CONFIG ##
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
+
