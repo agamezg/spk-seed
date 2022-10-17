@@ -17,7 +17,7 @@ class Producer(
         .let { logger.info("Buy command published: $it") }
 
     companion object {
-        const val TOPIC = "buy-commands"
+        const val TOPIC = "my-topic-1"
         val logger: Logger = Loggers.getLogger(Producer::class.java)
     }
 }

@@ -16,6 +16,6 @@ class BuyCurrency(
 
     override suspend fun execute(buyCommand: BuyCommand) =
         currencyRepository.save(buyCommand.currency)
-            .let { this.currencyCache.put(it) }
+            ?.let { this.currencyCache.put(it) }
             .let { currencyMessenger.publish(buyCommand) }
 }

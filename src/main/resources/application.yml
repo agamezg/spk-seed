@@ -3,10 +3,8 @@ spring:
     name: spk-seed
   data:
     mongodb:
-      host: ${MONGO_HOST}
-      port: ${MONGO_PORT}
-      username: ${MONGO_USER}
-      password: ${MONGO_PASS}
+      uri: ${MONGO_URI}
+      database: ${MONGO_DB}
   redis:
     host: ${REDIS_HOST}
     port: ${REDIS_PORT}

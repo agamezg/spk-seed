@@ -3,10 +3,8 @@ spring:
     name: spk-seed
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      username: redbee
-      password: r3db33
+      uri: mongodb://redbee:r3db33@localhost:27017
+      database: coupons
   redis:
     host: localhost
     port: 6379
