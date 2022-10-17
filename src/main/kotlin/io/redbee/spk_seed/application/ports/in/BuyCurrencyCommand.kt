@@ -4,7 +4,7 @@ import io.redbee.spk_seed.domain.Currency
 import java.math.BigDecimal
 
 interface BuyCurrencyCommand {
-    fun execute(buyCommand: BuyCommand)
+    suspend fun execute(buyCommand: BuyCommand)
 }
 
 data class BuyCommand(

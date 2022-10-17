@@ -1,10 +1,10 @@
-package io.redbee.spk_seed.adapter.database.model
+package io.redbee.spk_seed.adapter.db.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.math.BigDecimal
-import java.util.UUID
+import java.util.*
 
 @Document
 @JsonIgnoreProperties(ignoreUnknown = true)

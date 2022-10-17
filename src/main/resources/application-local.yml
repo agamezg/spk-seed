@@ -7,3 +7,9 @@ spring:
       port: 27017
       username: redbee
       password: r3db33
+  redis:
+    host: localhost
+    port: 6379
+    username: randomuser
+    password: randompass
+    timeout: 2s

@@ -13,7 +13,7 @@ class Producer(
     private val kafkaTemplate: KafkaTemplate<String, Currency>
 ) : CurrencyMessenger {
 
-    override fun publish(buyCommand: BuyCommand) = kafkaTemplate.send(TOPIC, buyCommand.currency)
+    override suspend fun publish(buyCommand: BuyCommand) = kafkaTemplate.send(TOPIC, buyCommand.currency)
         .let { logger.info("Buy command published: $it") }
 
     companion object {

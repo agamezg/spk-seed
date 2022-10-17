@@ -18,12 +18,12 @@ class CurrencyController(
 ) {
 
     @GetMapping
-    fun getCurrencies() = getCurrenciesQuery
+    suspend fun getCurrencies() = getCurrenciesQuery
         .also { logger.info("Getting currencies") }
         .execute()
 
     @PostMapping
-    fun buyCurrency(@RequestBody buyCommand: BuyCommand) = buyCurrencyCommand.execute(buyCommand)
+    suspend fun buyCurrency(@RequestBody buyCommand: BuyCommand) = buyCurrencyCommand.execute(buyCommand)
 
     companion object {
         val logger = Loggers.getLogger(CurrencyController::class.java)
