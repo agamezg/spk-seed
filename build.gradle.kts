@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "2.7.4"
     id("io.spring.dependency-management") version "1.0.14.RELEASE"
+    id("io.kotest.multiplatform") version "5.0.2"
     kotlin("jvm") version "1.6.21"
     kotlin("plugin.spring") version "1.6.21"
 }
@@ -16,6 +17,7 @@ repositories {
 }
 
 extra["springCloudVersion"] = "2021.0.4"
+val KOTEST_VERSION = "5.0.2"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-actuator")
@@ -39,6 +41,13 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.springframework.kafka:spring-kafka-test")
+    testImplementation ("io.kotest:kotest-runner-junit5:5.5.1")
+    testImplementation ("io.kotest:kotest-assertions-core:5.5.1")
+    testImplementation ("io.kotest:kotest-property:5.5.1")
+    testImplementation("io.mockk:mockk:1.10.0")
+
+
+
 }
 
 dependencyManagement {
@@ -55,6 +64,6 @@ tasks.withType<KotlinCompile> {
     }
 }
 
-tasks.withType<Test> {
+tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
