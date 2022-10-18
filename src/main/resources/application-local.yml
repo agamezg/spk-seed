@@ -11,3 +11,8 @@ spring:
     username: randomuser
     password: randompass
     timeout: 2s
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://127.0.0.1:1612;database=coupons_datasource
+    password: redbee
+    username: r3db33

@@ -63,3 +63,10 @@ services:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
 
+# TODO: pensar si es mejor usar liquid para la inicialización
+  sqlserver:
+    build: ./db
+    ports:
+      - "1433:1433"
+
+

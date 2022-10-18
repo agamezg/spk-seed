@@ -11,3 +11,8 @@ spring:
     username: ${REDIS_USER}
     password: ${REDIS_PASS}
     timeout: ${REDIS_TIMEOUT}
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: ${SQLSERVER_SERVER_URL}
+    username: ${SQLSERVER_USER}
+    password: ${SQLSERVER_PASS}
