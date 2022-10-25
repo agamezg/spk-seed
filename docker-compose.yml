@@ -63,10 +63,17 @@ services:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
     command: [ "redis-server", "/usr/local/etc/redis/redis.conf" ]
 
-# TODO: pensar si es mejor usar liquid para la inicialización
+  # TODO: mejor usar liquid para la inicialización
   sqlserver:
-    build: ./db
+    image: mcr.microsoft.com/mssql/server:2019-CU3-ubuntu-18.04
+    user: '0:0'
     ports:
       - "1433:1433"
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: r3db333!
+      MSSQL_PID: Express
+    volumes:
+      - ~/docker/sqlserver-data:/var/opt/mssql
 
 

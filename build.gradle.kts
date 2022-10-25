@@ -70,7 +70,6 @@ dependencies {
     // Swagger
     implementation("org.springdoc:springdoc-openapi-webflux-ui:${property("springDocOpenApiVersion")}")
     implementation("org.springdoc:springdoc-openapi-kotlin:${property("springDocOpenApiVersion")}")
-    implementation("org.springdoc:springdoc-openapi-data-rest:${property("springDocOpenApiVersion")}")
 
     // JDBC driver
     implementation("io.r2dbc:r2dbc-mssql:${property("r2dbcVersion")}")
