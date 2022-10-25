@@ -1,10 +1,16 @@
 spring:
   application:
-    name: spk-seed
+    name: spk-seed-evolution
   data:
     mongodb:
       uri: ${MONGO_URI}
       database: ${MONGO_DB}
+    mssql:
+      host: ${MSSQL_HOST}
+      port: ${MSSQL_PORT}
+      database: ${MSSQL_DATABASE}
+      username: ${MSSQL_USER}
+      password: ${MSSQL_PASS}
   redis:
     host: ${REDIS_HOST}
     port: ${REDIS_PORT}

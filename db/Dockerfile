@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/mssql/server:2019-CU13-ubuntu-20.04
+FROM mcr.microsoft.com/mssql/server:2019-CU13-ubuntu-18.04
 
 WORKDIR /usr/src/app
 

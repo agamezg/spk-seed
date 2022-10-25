@@ -1,0 +1,24 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.name | dump}}
+  description: ${{values.description | dump}}
+  labels:
+    example.com/custom: custom_label_value
+  annotations:
+    example.com/service-discovery: artistweb
+    circleci.com/project-slug: github/example-org/artist-website
+  tags:
+    - kotlin
+  links:
+    - url: https://admin.example-org.com
+      title: Admin Dashboard
+      icon: dashboard
+    - url: https://admin.example-org.com
+      title: Docs
+      icon: dashboard
+spec:
+  type: service
+  lifecycle: production
+  owner: 'GS.IDP.Verticals.${{values.vertical}}'
+  system: 'GS.IDP.Verticals.${{values.vertical}}'

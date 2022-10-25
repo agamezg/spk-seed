@@ -65,8 +65,6 @@ object BuyCurrencySpec2 : FunSpec({
             coVerify(exactly = 1) { currencyRepository.save(aBuyCommand.currency) }
             coVerify(exactly = 1) { currencyCache.put(aBuyCommand.currency) }
         }
-
-
     }
 
 })

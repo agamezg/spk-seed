@@ -1,0 +1,1 @@
+docker-compose -f assets/local/docker-compose/docker-compose.yaml down

@@ -1,4 +1,4 @@
-package io.redbee.spk_seed.adapter.db.model
+package io.redbee.spk_seed.adapter.nosql.model
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import org.springframework.data.annotation.Id

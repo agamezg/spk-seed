@@ -1,1 +1,1 @@
-rootProject.name = "spk-seed"
+rootProject.name = "spk-seed-evolution"
