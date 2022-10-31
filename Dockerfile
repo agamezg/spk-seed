@@ -19,4 +19,3 @@ ENV OTEL_RESOURCE_ATTRIBUTES "service.name=spk-seed-evolution"
 ENV OTEL_TRACES_EXPORTER "logging"
 
 CMD ["java", "-jar", "api.jar"]
-d
