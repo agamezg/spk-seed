@@ -201,7 +201,7 @@ tasks.register<Copy>("installGitHook") {
     from("scripts/pre-commit")
     into(".git/hooks")
 
-    // copy pre-push  hook
+    // copy pre-push hook
     from("scripts/pre-push")
     into(".git/hooks")
 
