@@ -195,3 +195,22 @@ tasks.koverVerify {
 tasks.bootJar {
     archiveFileName.set("api.jar")
 }
+
+tasks.register<Copy>("installGitHook") {
+    group = "verification"
+    description = "install pre-commit & pre-push linting hooks"
+
+    // copy pre-commit hook
+    from("scripts/pre-commit")
+    into(".git/hooks")
+
+    // copy pre-push hook
+    from("scripts/pre-push")
+    into(".git/hooks")
+
+    fileMode = 0b111111101
+}
+
+tasks.build {
+    dependsOn("installGitHook")
+}
