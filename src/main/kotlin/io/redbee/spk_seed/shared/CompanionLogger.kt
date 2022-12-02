@@ -14,5 +14,4 @@ abstract class CompanionLogger {
     infix fun Logger.trace(message: String) = log.trace(message)
     infix fun Logger.info(message: String) = log.info(message)
     infix fun Logger.error(message: String) = log.error(message)
-
 }

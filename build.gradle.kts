@@ -75,7 +75,7 @@ dependencies {
     implementation("io.r2dbc:r2dbc-mssql:${property("r2dbcVersion")}")
 
     // Arrow
-    implementation ("io.arrow-kt:arrow-fx-coroutines:${property("arrowVersion")}")
+    implementation("io.arrow-kt:arrow-fx-coroutines:${property("arrowVersion")}")
 
     // Tests
     testImplementation("com.tngtech.archunit:archunit:${property("archUnitVersion")}")
@@ -84,13 +84,10 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")
     testImplementation("org.springframework.kafka:spring-kafka-test")
-    testImplementation ("io.kotest:kotest-runner-junit5:${property("kotestVersion")}")
-    testImplementation ("io.kotest:kotest-assertions-core:${property("kotestVersion")}")
-    testImplementation ("io.kotest:kotest-property:${property("kotestVersion")}")
+    testImplementation("io.kotest:kotest-runner-junit5:${property("kotestVersion")}")
+    testImplementation("io.kotest:kotest-assertions-core:${property("kotestVersion")}")
+    testImplementation("io.kotest:kotest-property:${property("kotestVersion")}")
     testImplementation("io.mockk:mockk:${property("mockkVersion")}")
-
-
-
 }
 
 dependencyManagement {
@@ -194,4 +191,23 @@ tasks.koverVerify {
 
 tasks.bootJar {
     archiveFileName.set("api.jar")
+}
+
+tasks.register<Copy>("installGitHook") {
+    group = "verification"
+    description = "install pre-commit & pre-push linting hooks"
+
+    // copy pre-commit hook
+    from("scripts/pre-commit")
+    into(".git/hooks")
+
+    // copy pre-push  hook
+    from("scripts/pre-push")
+    into(".git/hooks")
+
+    fileMode = 0b111111101
+}
+
+tasks.build {
+    dependsOn("installGitHook")
 }

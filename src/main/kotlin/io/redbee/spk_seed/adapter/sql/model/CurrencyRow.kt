@@ -6,11 +6,9 @@ import java.math.BigDecimal
 data class CurrencyRow(
     val symbol: String,
     val value: BigDecimal,
-){
+) {
     fun to() = Currency(
         symbol = symbol,
         value = value
     )
-
 }
-

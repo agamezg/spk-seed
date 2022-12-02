@@ -10,11 +10,11 @@ import org.springframework.stereotype.Repository
 @Repository
 class MongoAdapter(
     private val reactiveTemplate: ReactiveMongoTemplate
-) : CurrencyRepository{
+) : CurrencyRepository {
 
     override suspend fun save(currency: Currency): Currency =
         this.reactiveTemplate.save(currency).awaitFirst()
             .log { info("Currency saved $it") }
 
-    companion object: CompanionLogger()
+    companion object : CompanionLogger()
 }
