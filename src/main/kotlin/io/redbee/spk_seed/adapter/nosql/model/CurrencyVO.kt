@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 import java.math.BigDecimal
-import java.util.*
+import java.util.UUID
 
 @Document
 @JsonIgnoreProperties(ignoreUnknown = true)

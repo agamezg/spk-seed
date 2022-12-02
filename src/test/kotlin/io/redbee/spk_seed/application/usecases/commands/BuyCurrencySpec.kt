@@ -12,11 +12,11 @@ import io.redbee.spk_seed.modelTest.aValidBuyCommand
 import io.redbee.spk_seed.shared.GIVEN
 import io.redbee.spk_seed.shared.THEN
 import io.redbee.spk_seed.shared.WHEN
-import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.days
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalStdlibApi::class, kotlinx.coroutines.ExperimentalCoroutinesApi::class)
-object BuyCurrencySpec2 : FunSpec({
+object BuyCurrencySpec : FunSpec({
 
     lateinit var currencyRepository: CurrencyRepository
     lateinit var currencyMessenger: CurrencyMessenger
@@ -52,11 +52,9 @@ object BuyCurrencySpec2 : FunSpec({
             } returns true
         }
 
-
         WHEN("call execute method") {
             launch { buyCurrency.execute(aBuyCommand) }
         }
-
 
         testCoroutineScheduler.advanceTimeBy(duration.inWholeMilliseconds)
 
@@ -66,6 +64,4 @@ object BuyCurrencySpec2 : FunSpec({
             coVerify(exactly = 1) { currencyCache.put(aBuyCommand.currency) }
         }
     }
-
 })
-

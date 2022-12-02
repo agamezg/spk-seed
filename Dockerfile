@@ -12,10 +12,7 @@ USER javauser
 
 COPY build/libs/*.jar tools/*.jar /opt/spk-seed-evolution/
 
-ENV JAVA_TOOL_OPTIONS "-javaagent:aws-opentelemetry-agent.jar"
-
-# OpenTelemetry agent configuration
-ENV OTEL_RESOURCE_ATTRIBUTES "service.name=spk-seed-evolution"
-ENV OTEL_TRACES_EXPORTER "logging"
+ENV JAVA_TOOL_OPTIONS "-javaagent:aws-opentelemetry-agent.jar -Dotel.javaagent.extensions=opentelemetry-extension.jar"
+ENV OTEL_TRACES_SAMPLER "health"
 
 CMD ["java", "-jar", "api.jar"]

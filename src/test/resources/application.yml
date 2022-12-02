@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spk-seed-evolution
+  data:
+    mongodb:
+      uri: mongodb://redbee:r3db33@localhost:27017
+      database: coupons
+    mssql:
+      host: localhost
+      port: 1433
+      database: coupons_datasource
+      username: sa
+      password: r3db333!
+  redis:
+    host: localhost
+    port: 6379
+    username: randomuser
+    password: randompass
+    timeout: 2s
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://127.0.0.1:1612;database=coupons_datasource
+    password: redbee
+    username: r3db33

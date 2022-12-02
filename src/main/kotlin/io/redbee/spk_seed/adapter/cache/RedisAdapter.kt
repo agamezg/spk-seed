@@ -15,7 +15,6 @@ class RedisAdapter(
     override suspend fun get(symbol: String): Currency? = redisClient
         .opsForValue().get(symbol).awaitFirstOrNull()
 
-
     override suspend fun put(currency: Currency): Boolean = redisClient
         .opsForValue().set(currency.symbol, currency).awaitFirst()
 }

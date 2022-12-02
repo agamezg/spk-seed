@@ -1,10 +1,9 @@
 package io.redbee.spk_seed.shared
 
-import reactor.util.Logger
 import org.slf4j.MDC
+import reactor.util.Logger
 
 data class BenchmarkResult<T>(val response: T, val elapsedTime: Long)
-
 
 /**
  * It receives a block, executes it and returns the result of the block with the elapsed time.
@@ -12,9 +11,9 @@ data class BenchmarkResult<T>(val response: T, val elapsedTime: Long)
  * @return @see BenchmarkResult<T>
  */
 inline fun <T> measureTimeMillisWithResponse(block: () -> T): BenchmarkResult<T> {
-  val start = System.currentTimeMillis()
-  val response = block()
-  return BenchmarkResult(response, System.currentTimeMillis() - start)
+    val start = System.currentTimeMillis()
+    val response = block()
+    return BenchmarkResult(response, System.currentTimeMillis() - start)
 }
 
 /**
@@ -25,10 +24,9 @@ inline fun <T> measureTimeMillisWithResponse(block: () -> T): BenchmarkResult<T>
  * @param block
  */
 inline fun <T> Logger.benchmark(actionName: String, block: () -> T): T {
-  info("Start execution of {}", actionName)
-  val result = measureTimeMillisWithResponse(block)
-  info("End execution of {} - elapsed time {} ms", actionName, result.elapsedTime)
-  MDC.put("elapsed_time", result.elapsedTime.toString())
-  return result.response
+    info("Start execution of {}", actionName)
+    val result = measureTimeMillisWithResponse(block)
+    info("End execution of {} - elapsed time {} ms", actionName, result.elapsedTime)
+    MDC.put("elapsed_time", result.elapsedTime.toString())
+    return result.response
 }
-
