@@ -9,5 +9,4 @@ class SpkSeedApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }

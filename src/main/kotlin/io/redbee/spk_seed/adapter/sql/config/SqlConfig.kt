@@ -15,11 +15,12 @@ import java.time.Duration
 
 @Configuration
 @EnableR2dbcRepositories
-class SqlConfig(@Value("\${spring.data.mssql.host}") private val host: String,
-                @Value("\${spring.data.mssql.port}") private val port: Int,
-                @Value("\${spring.data.mssql.database}") private val database: String,
-                @Value("\${spring.data.mssql.username}") private val username: String,
-                @Value("\${spring.data.mssql.password}") private val password: String
+class SqlConfig(
+    @Value("\${spring.data.mssql.host}") private val host: String,
+    @Value("\${spring.data.mssql.port}") private val port: Int,
+    @Value("\${spring.data.mssql.database}") private val database: String,
+    @Value("\${spring.data.mssql.username}") private val username: String,
+    @Value("\${spring.data.mssql.password}") private val password: String
 ) : AbstractR2dbcConfiguration() {
 
     @Bean
@@ -45,7 +46,6 @@ class SqlConfig(@Value("\${spring.data.mssql.host}") private val host: String,
             .maxSize(30)
             .maxCreateConnectionTime(Duration.ofSeconds(1))
             .build()
-
 
         return ConnectionPool(configuration)
     }

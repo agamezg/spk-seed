@@ -42,7 +42,6 @@ class CurrencyRouter(
                 .toServerResponse()
         }
 
-
     private suspend fun getCurrencies(serverRequest: ServerRequest) =
         log.benchmark("getCurrencies") {
             getCurrenciesQuery
@@ -55,5 +54,4 @@ class CurrencyRouter(
         ServerResponse
             .ok()
             .bodyAndAwait(this)
-
 }
