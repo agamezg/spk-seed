@@ -13,7 +13,13 @@ Tomando en cuenta la complejidad y la incertidumbre en cuánto a las tecnología
 
 ## Casos de uso
 
-[Agregar diagramas de secuencias acá]
+* Cada puerto de entrada o salida, deberá usar Either (Arrow) como wrapper de la respuesta, para manejar flujo principal y alterno
+* Favorecer el uso de flujos reactivos, en este caso preferir siempre el Flow de kotlinx.coroutines, en vez de Flux/Mono de reactor.
+* Flujo guiado por eventos
+* Se usará gitflow como branching model
+* Apuntar a un 75% de coverage en cada feature que se suba (si es más mejor).
+* Continuará...
+
 
 
 ## Acuerdos para el desarrollo
